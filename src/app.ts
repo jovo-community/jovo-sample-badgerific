@@ -1,4 +1,5 @@
 import { BadgerificPlugin, BadgerificInitData } from '@jovo-community/plugin-badgerific';
+import { TimeZonePlugin } from '@jovo-community/plugin-timezone';
 import { App, Jovo } from '@jovotech/framework';
 
 import { GlobalComponent } from './components/GlobalComponent';
@@ -39,12 +40,13 @@ const app = new App({
   |
   */
   plugins: [
+    new TimeZonePlugin(),
     new BadgerificPlugin({
-      onInit: (jovo: Jovo) => {
+      onInit: async (jovo: Jovo) => {
         console.log('BadgerificPlugin:onInit');
 
         return {
-          timeZone: jovo.$request.timeZone,
+          timeZone: await jovo.$timeZone.getTimeZone(),
           rules: badgeRules,
         } as BadgerificInitData;
       },

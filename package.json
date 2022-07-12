@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@jovo-community/plugin-badgerific": "^1.0.1",
+    "@jovo-community/plugin-timezone": "^4.0.1",
     "@jovotech/db-filedb": "^4.0.0",
     "@jovotech/framework": "^4.0.0",
     "@jovotech/plugin-debugger": "^4.0.0",
